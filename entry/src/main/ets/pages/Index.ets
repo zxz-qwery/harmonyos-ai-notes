@@ -21,15 +21,15 @@ struct Index {
   }
 
   private moodText(mood: string): string {
-    return mood === 'positive' ? '积极😊' : '消极😔'
+    return mood === 'negative' ? '😔 消极' : '😊 积极'
   }
 
   private moodBg(mood: string): string {
-    return mood === 'positive' ? '#EAF9F0' : '#FDECEC'
+    return mood === 'negative' ? '#F3F4F6' : '#EAF9F0'
   }
 
   private moodFg(mood: string): string {
-    return mood === 'positive' ? '#117A37' : '#B42318'
+    return mood === 'negative' ? '#6B7280' : '#117A37'
   }
 
   private buildMockNotes(): Note[] {
@@ -166,15 +166,27 @@ struct Index {
                     .layoutWeight(1)
 
                   Row() {
-                    Row() {
-                      Text(this.moodText(note.mood))
-                        .fontSize(12)
-                        .fontWeight(FontWeight.Medium)
-                        .fontColor(this.moodFg(note.mood))
+                    if (note.mood === 'negative') {
+                      Row() {
+                        Text(this.moodText(note.mood))
+                          .fontSize(12)
+                          .fontWeight(FontWeight.Medium)
+                          .fontColor(this.moodFg(note.mood))
+                      }
+                      .padding({ left: 10, right: 10, top: 5, bottom: 5 })
+                      .backgroundColor(this.moodBg(note.mood))
+                      .borderRadius(999)
+                    } else {
+                      Row() {
+                        Text(this.moodText(note.mood))
+                          .fontSize(12)
+                          .fontWeight(FontWeight.Medium)
+                          .fontColor(this.moodFg(note.mood))
+                      }
+                      .padding({ left: 10, right: 10, top: 5, bottom: 5 })
+                      .backgroundColor(this.moodBg(note.mood))
+                      .borderRadius(999)
                     }
-                    .padding({ left: 10, right: 10, top: 5, bottom: 5 })
-                    .backgroundColor(this.moodBg(note.mood))
-                    .borderRadius(999)
 
                     Button() {
                       Text('🗑')
