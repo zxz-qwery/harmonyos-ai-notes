@@ -177,19 +177,19 @@ http://10.0.2.2:8000/api/ai/summary
 
 ## 首页
 
-![首页](./project-screenshots/home.png)
+![首页](./project-screenshot/home.png)
 
 ---
 
 ## 新建便签
 
-![新建便签](./project-screenshots/create.png)
+![新建便签](./project-screenshot/create.png)
 
 ---
 
 ## AI 摘要效果
 
-![AI摘要](./project-screenshots/ai.png)
+![AI摘要](./project-screenshot/ai.png)
 
 ---
 
